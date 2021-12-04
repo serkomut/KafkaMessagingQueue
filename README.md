@@ -29,3 +29,7 @@ Guide ile arasinda Bire Çok (One to Many) ilişki vardır. Bir Guide birden faz
 | CreateDate | `DateTime` | Zorunlu.|
 | UpdateBy | `string` | Kayıt güncellenirken zorunlu. En fazla 200 karakterdir.|
 | UpdateDate | `DateTime` | Kayıt güncellenirken zorunlu. |
+
+## Persistence
+
+Persistence katmanında başka bir deyişle data katmanında PostgreSQL kullanılmıştır. CodeFirst olarak tasarlanmıştır.
