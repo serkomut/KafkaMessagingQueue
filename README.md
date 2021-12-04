@@ -33,3 +33,7 @@ Guide ile arasinda Bire Çok (One to Many) ilişki vardır. Bir Guide birden faz
 ## Persistence
 
 Persistence katmanında başka bir deyişle data katmanında PostgreSQL kullanılmıştır. CodeFirst olarak tasarlanmıştır.
+
+#### Persistence Test Sonuçları
+
+![alt text](docs/unit_test_result.png "Unit Test")
