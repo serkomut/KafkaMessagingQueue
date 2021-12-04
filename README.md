@@ -37,3 +37,5 @@ Persistence katmanında başka bir deyişle data katmanında PostgreSQL kullanı
 #### Persistence Test Sonuçları
 
 ![alt text](docs/unit_test_result.png "Unit Test")
+
+## Messages
