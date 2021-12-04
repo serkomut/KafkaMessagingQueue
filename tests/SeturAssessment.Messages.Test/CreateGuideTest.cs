@@ -1,4 +1,5 @@
 using SeturAssessment.Messages.Commands;
+using SeturAssessment.Messages.Models;
 using System;
 using System.Linq;
 using Xunit;
@@ -15,6 +16,42 @@ namespace SeturAssessment.Messages.Test
             var validator = commandValidator.Validate(command);
             Assert.False(validator.IsValid);
             Assert.Equal(2, validator.Errors.Count);
+            
+        }
+
+        [Fact]
+        public void Guide_Validation_Should_InValid_When_Name_Empty()
+        {
+            var command = new CreateGuide
+            {
+                Surname = "Surname",
+                Company= "Company"
+            };
+            var commandValidator = new CreateGuideValidator();
+            var validator = commandValidator.Validate(command);
+            Assert.False(validator.IsValid);
+            Assert.Collection(validator.Errors, x => x.ErrorMessage.Contains("'Name' must not be empty."));
+        }
+
+        [Fact]
+        public void Guide_Validation_Should_InValid_When_Contacts()
+        {
+            var command = new CreateGuide
+            {
+                Name = "Name",
+                Surname = "Surname",
+                Company = "Company",
+                Contacts = new[]
+                {
+                    new ContactModel()
+                }
+            };
+            var commandValidator = new CreateGuideValidator();
+            var validator = commandValidator.Validate(command);
+            var items = validator.Errors.Select(x=> x.ErrorMessage).ToList();
+            Assert.Equal("'Contact Type' must not be empty.", items[0]);
+            Assert.Equal("'Value' must not be empty.", items[1]);
+            Assert.False(validator.IsValid);
         }
 
         [Theory, Data]

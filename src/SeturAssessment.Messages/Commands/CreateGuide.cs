@@ -30,6 +30,7 @@ namespace SeturAssessment.Messages.Commands
         public ContactModelValidator()
         {
             RuleFor(x => x.ContactType).NotEmpty();
+            RuleFor(x => x.Value).NotEmpty();
             RuleFor(x => x.Value).NotEmpty()
                 .EmailAddress()
                 .When(x => x.ContactType == ContactTypeEnum.EMAIL);
