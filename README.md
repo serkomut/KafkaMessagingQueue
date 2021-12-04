@@ -24,7 +24,7 @@ Guide ile arasinda Bire Çok (One to Many) ilişki vardır. Bir Guide birden faz
 |:-----|:-----|:---------|
 | Id | `Guid` | Zorunlu.|
 | Value | `string` | Zorunlu. En fazla 200 karakterdir.|
-| ContactType | `enum` | `EMAIL`: ise `Value` alanına gelecek veri email olmak zorunda. `PHONE`: ise `Value` alanına gelecek veri telefon olmak zorunda. `LOCATION`: ise buraya gelecek veri enlem, boylam ve yakınlık gelecek. Ön:`{longitude},{latitude},{zoom}` `36.8811824,30.6959505,13.75z` |
+| ContactType | `enum` | `EMAIL`: ise `Value` alanına gelecek veri email olmak zorunda. `PHONE`: ise `Value` alanına gelecek veri telefon numarası olmak zorunda. `LOCATION`: ise buraya gelecek veri bulunduğu şehir olmalı.|
 | CreateBy | `string` | Zorunlu. En fazla 200 karakterdir.|
 | CreateDate | `DateTime` | Zorunlu.|
 | UpdateBy | `string` | Kayıt güncellenirken zorunlu. En fazla 200 karakterdir.|
