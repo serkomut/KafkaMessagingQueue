@@ -6,8 +6,20 @@ namespace SeturAssessment.Persistence
 {
     public class SeturContext : DbContext
     {
-        public SeturContext(DbContextOptions<SeturContext> options) : base(options)
+        private readonly ContextConfiguration contextConfiguration;
+        
+        public SeturContext(ContextConfiguration contextConfiguration)
         {
+            this.contextConfiguration = contextConfiguration;
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (contextConfiguration.Type == "InMemory")
+                optionsBuilder.UseInMemoryDatabase(contextConfiguration.ConnectionString);
+            else
+                optionsBuilder.UseNpgsql(contextConfiguration.ConnectionString);
+
+            base.OnConfiguring(optionsBuilder);
         }
         public DbSet<Guide> Guides { get; set; }
         public DbSet<Contact> Contacts { get; set; }
@@ -18,5 +30,11 @@ namespace SeturAssessment.Persistence
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             base.OnModelCreating(modelBuilder);
         }
+    }
+
+    public class ContextConfiguration
+    {
+        public string ConnectionString { get; set; }
+        public string Type { get; set; }
     }
 }

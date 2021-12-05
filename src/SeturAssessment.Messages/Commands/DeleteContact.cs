@@ -4,5 +4,5 @@ using System;
 
 namespace SeturAssessment.Messages.Commands
 {
-    public record DeleteGuide(Guid Id) : IRequest<CommandResponse<Guid>>;
+    public record DeleteContact(Guid Id) : IRequest<CommandResponse<Guid>>;
 }

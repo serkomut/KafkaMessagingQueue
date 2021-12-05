@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
+using SeturAssessment.Persistence.Test.Infrastructure;
 
 namespace SeturAssessment.Persistence.Test
 {

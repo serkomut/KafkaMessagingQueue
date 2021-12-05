@@ -1,9 +1,8 @@
 ﻿using AutoFixture;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 
-namespace SeturAssessment.Persistence.Test
+namespace SeturAssessment.Persistence.Test.Infrastructure
 {
     public class DataModuleFixture
     {
@@ -12,10 +11,12 @@ namespace SeturAssessment.Persistence.Test
             var services = new ServiceCollection();
             services.AddScoped(x =>
             {
-                var options = new DbContextOptionsBuilder<SeturContext>()
-                    .UseInMemoryDatabase("TestDatabase")
-                    .Options;
-                return new SeturContext(options);
+                var config = new ContextConfiguration
+                {
+                    ConnectionString = "TestDatabase",
+                    Type = "InMemory"
+                };
+                return new SeturContext(config);
             });
 
 

@@ -2,7 +2,7 @@
 using AutoFixture.Xunit2;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SeturAssessment.Persistence.Test
+namespace SeturAssessment.Persistence.Test.Infrastructure
 {
     public class DataAttribute : AutoDataAttribute
     {

@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using Microsoft.Extensions.DependencyInjection;
 using SeturAssessment.Domain;
+using SeturAssessment.Persistence.Test.Infrastructure;
 using System;
 using System.Linq;
 using System.Net.Mail;
