@@ -22,13 +22,10 @@ namespace SeturAssessment.Commands.Test
         [Fact]
         public async Task Handle_Should_Be_Success_When_Create_Model()
         {
-            //Arrange
             var request = Builder<CreateGuide>.CreateNew().Build();
-
-            //Act
+            
             var result = await handler.Handle(request, CancellationToken.None);
 
-            //Assert
             Assert.NotNull(result);
             Assert.True(result.Aggregate != Guid.Empty);
         }
