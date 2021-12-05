@@ -25,7 +25,7 @@ namespace SeturAssessment.Queries
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(request.Filter))
-                query = query.Where(x => x.Name.Contains(request.Filter) || x.Surname.Contains(request.Filter) || x.Company.Contains(x.Company));
+                query = query.Where(x => x.Name.Contains(request.Filter) || x.Surname.Contains(request.Filter));
 
             var count = await query.CountAsync();
             query = query.Skip(request.Skip)
