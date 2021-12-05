@@ -7,6 +7,7 @@ using SeturAssessment.Messages.Commands;
 using System;
 using System.Threading;
 using SeturAssessment.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace SeturAssessment.Commands.Test
 {

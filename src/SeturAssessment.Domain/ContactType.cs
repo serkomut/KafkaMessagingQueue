@@ -2,8 +2,8 @@
 {
     public enum ContactType : byte
     {
-        EMAIL,
-        PHONE,
-        LOCATION
+        EMAIL = 1,
+        PHONE = 2,
+        LOCATION = 3
     }
 }

@@ -19,7 +19,7 @@ namespace SeturAssessment.Commands
         }
         public async Task<CommandResponse<Guid>> Handle(AddContact request, CancellationToken cancellationToken)
         {
-            var exists = await context.Contacts.AnyAsync(x => x.Value == request.Value, cancellationToken);
+            var exists = await context.Contacts.AnyAsync(x => x.Value == request.Value && x.ContactType != ContactType.LOCATION, cancellationToken);
             if (exists)
                 throw new Exception("Bu kayıt daha önce eklenmiş!");
             

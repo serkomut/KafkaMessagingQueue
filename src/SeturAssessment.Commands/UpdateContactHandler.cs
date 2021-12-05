@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using SeturAssessment.Domain;
 using SeturAssessment.Messages.Commands;
 using SeturAssessment.Messages.Models;
 using SeturAssessment.Persistence;
@@ -23,7 +24,11 @@ namespace SeturAssessment.Commands
             if (item == null)
                 throw new Exception("Kayıt bulunamadı!");
 
-            item.ContactType = (Domain.ContactType)request.ContactType;
+            var exists = await context.Contacts.AnyAsync(x => x.Value == request.Value && x.Id != request.Id && x.ContactType != ContactType.LOCATION, cancellationToken);
+            if (exists)
+                throw new Exception("Bu kayıt daha önce eklenmiş!");
+
+            item.ContactType = (ContactType)request.ContactType;
             item.Value = request.Value;
             item.UpdateBy = request.UpdateBy;
             item.UpdateDate = DateTime.Now;

@@ -15,16 +15,17 @@ namespace SeturAssessment.Commands.Test
     {
         private readonly SeturContext context;
         private readonly AddContactHandler handler;
+        Guid guidId;
         public AddContactHandlerTest(DataModuleFixture dataModuleFixture)
         {
+            guidId = Guid.NewGuid();
             context = dataModuleFixture.ServiceProvider.GetService<SeturContext>();
             handler = new AddContactHandler(context);
         }
 
         [Theory]
-        [InlineData("f08bf843-abfc-43e4-8ce6-d597f2cccc91", "email@email.com", ContactType.EMAIL)]
-        [InlineData("f08bf843-abfc-43e4-8ce6-d597f2cccc91", "05431234567", ContactType.PHONE)]
-        [InlineData("f08bf843-abfc-43e4-8ce6-d597f2cccc91", "Antalya", ContactType.LOCATION)]
+        [InlineData("6180d890-da06-4517-91cb-55d7f80e3053", "email@email.com", ContactType.EMAIL)]
+        [InlineData("6180d890-da06-4517-91cb-55d7f80e3053", "05431234567", ContactType.PHONE)]
         public async Task Handle_Should_Be_Exception_When_Value_In_Database(Guid guideId, string value, ContactType contactType)
         {
             var entity = new Contact
@@ -32,14 +33,19 @@ namespace SeturAssessment.Commands.Test
                 GuideId = guideId,
                 Value = value,
                 ContactType = contactType,
-                CreateBy = Guid.NewGuid().ToString(),
+                CreateBy = "SYSTEM",
                 CreateDate = DateTime.Now
             };
             await context.Contacts.AddAsync(entity);
             await context.SaveChangesAsync();
 
-            var request = Builder<AddContact>.CreateNew().Build();
-            request.Value = entity.Value;
+            var request = new AddContact
+            {
+                ContactType = (Messages.Models.ContactTypeEnum)contactType,
+                Value = entity.Value,
+                CreateBy = "SYSTEM",
+                GuideId = guideId
+            };
 
             var exception = await Assert.ThrowsAsync<Exception>(() => handler.Handle(request, CancellationToken.None));
 
@@ -47,9 +53,9 @@ namespace SeturAssessment.Commands.Test
         }
 
         [Theory]
-        [InlineData("f08bf843-abfc-43e4-8ce6-d597f2cccc91", "email@email.com", ContactType.EMAIL)]
-        [InlineData("f08bf843-abfc-43e4-8ce6-d597f2cccc91", "05431234567", ContactType.PHONE)]
-        [InlineData("f08bf843-abfc-43e4-8ce6-d597f2cccc91", "Antalya", ContactType.LOCATION)]
+        [InlineData("3c8cf233-37e2-4382-aaee-d74dd1ad9940", "email@test.com", ContactType.EMAIL)]
+        [InlineData("3c8cf233-37e2-4382-aaee-d74dd1ad9940", "05439874567", ContactType.PHONE)]
+        [InlineData("3c8cf233-37e2-4382-aaee-d74dd1ad9940", "Antalya", ContactType.LOCATION)]
         public async Task Handle_Should_Be_Success_When_Request_Model(Guid guideId, string value, ContactType contactType)
         {
             var request = new AddContact

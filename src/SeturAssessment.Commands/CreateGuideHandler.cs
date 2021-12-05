@@ -35,7 +35,7 @@ namespace SeturAssessment.Commands
                 var contacts = new List<Contact>();
                 foreach (var item in request.Contacts)
                 {
-                    var exists = await context.Contacts.AnyAsync(x => x.Value == item.Value, cancellationToken);
+                    var exists = await context.Contacts.AnyAsync(x => x.Value == item.Value && x.ContactType != ContactType.LOCATION, cancellationToken);
                     if (!exists)
                     {
                         var contact = new Contact
