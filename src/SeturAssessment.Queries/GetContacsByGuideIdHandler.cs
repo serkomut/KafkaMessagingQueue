@@ -20,7 +20,7 @@ namespace SeturAssessment.Queries
 
         public async Task<ContactDto[]> Handle(GetContacsByGuideId request, CancellationToken cancellationToken)
         {
-            var contacts = await context.Contacts.Where(x => x.GuideId == request.GuidId)
+            var contacts = await context.Contacts.Where(x => x.GuideId == request.GuideId)
                 .Select(x => x.ContactMap()).ToArrayAsync();
             return contacts;
         }

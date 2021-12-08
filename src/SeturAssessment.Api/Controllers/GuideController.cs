@@ -22,10 +22,10 @@ namespace SeturAssessment.Api.Controllers
         [HttpGet]
         public Task<QueryableResponse<GuideModel>> Get([FromQuery] GetGuides request) => mediator.Send(request);
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{Id:guid}")]
         public Task<GuideModel> Get([FromRoute] GetGuideById request) => mediator.Send(request);
 
-        [HttpGet("{guidId:guid}/contacts")]
+        [HttpGet("{GuideId:guid}/contacts")]
         public Task<ContactDto[]> Get([FromRoute] GetContacsByGuideId request) => mediator.Send(request);
 
         [HttpPost]
@@ -43,7 +43,7 @@ namespace SeturAssessment.Api.Controllers
             return mediator.Send(request);
         }
 
-        [HttpDelete("{id:guid}")]
+        [HttpDelete("{Id:guid}")]
         public Task<CommandResponse<Guid>> Delete([FromRoute] DeleteGuide request) => mediator.Send(request);
     }
 }

@@ -4,5 +4,5 @@ using System;
 
 namespace SeturAssessment.Messages.Queries
 {
-    public record GetContacsByGuideId(Guid GuidId) : IRequest<ContactDto[]>;
+    public record GetContacsByGuideId(Guid GuideId) : IRequest<ContactDto[]>;
 }

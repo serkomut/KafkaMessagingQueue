@@ -20,7 +20,7 @@ namespace SeturAssessment.Api.Controllers
             this.mediator = mediator;
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{Id:guid}")]
         public Task<ContactDto> Get([FromRoute] GetContactById request) => mediator.Send(request);
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace SeturAssessment.Api.Controllers
             return mediator.Send(request);
         }
 
-        [HttpDelete("{id:guid}")]
+        [HttpDelete("{Id:guid}")]
         public Task<CommandResponse<Guid>> Delete([FromRoute] DeleteContact request) => mediator.Send(request);
     }
 }
