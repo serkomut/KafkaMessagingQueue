@@ -5,6 +5,7 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E09F1AD-1207-4810-9B67-040F567031B4}"
 	ProjectSection(SolutionItems) = preProject
+		docs\CODE_COVERAGE.MD = docs\CODE_COVERAGE.MD
 		docs\DOMAIN.MD = docs\DOMAIN.MD
 		docs\MESSAGES.MD = docs\MESSAGES.MD
 		docs\PERSISTENCE.MD = docs\PERSISTENCE.MD

@@ -4,6 +4,7 @@
 - **[Persistence](docs/PERSISTENCE.MD)**
 - **[Messages](docs/MESSAGES.MD)**
 - **[Queries ve Commands](docs/QUERIES_COMMANDS.MD)**
+- **[Code Coverage Result](docs/CODE_COVERAGE.MD)**
 ___
 ## Gereksinimler
 **1. Kafkayı kurun ve çalıştırın.** Versiyon 2.0.1
