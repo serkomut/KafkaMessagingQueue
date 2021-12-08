@@ -26,7 +26,7 @@ namespace SeturAssessment.Api.Controllers
         public Task<GuideModel> Get([FromRoute] GetGuideById request) => mediator.Send(request);
 
         [HttpGet("{guidId:guid}/contacts")]
-        public Task<ContactModel[]> Get([FromRoute] GetContacsByGuideId request) => mediator.Send(request);
+        public Task<ContactDto[]> Get([FromRoute] GetContacsByGuideId request) => mediator.Send(request);
 
         [HttpPost]
         public Task<CommandResponse<Guid>> Post([FromBody] CreateGuide request)

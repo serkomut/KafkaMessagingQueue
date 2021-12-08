@@ -1,22 +1,39 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MassTransit;
+using MassTransit.KafkaIntegration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using SeturAssessment.Messages.Events;
 using System;
 
 namespace SeturAssessment.Api.Core
 {
     public static class ServiceCollectionExtensions
     {
+        public static IServiceCollection RegisterMassTransit(this IServiceCollection services)
+        {
+            services.AddMassTransit(config =>
+            {
+                config.UsingRabbitMq((context, cfg) => cfg.ConfigureEndpoints(context));
+                config.AddRider(rider =>
+                {
+
+                    rider.AddProducer<ReportByLocationPreparing>("PreparingEvent");
+                    rider.AddProducer<ReportByLocationCompleted>("CompletedEvent");
+
+                    rider.UsingKafka((context, factory) =>
+                    {
+                        factory.Host("localhost:9092");
+                    });
+                });
+            });
+
+            services.AddMassTransitHostedService(true);
+            return services;
+        }
         public static IServiceCollection AddCustomSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(options =>
             {
-                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
-                });
                 options.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {

@@ -32,6 +32,7 @@ namespace SeturAssessment.Commands
             };
 
             await context.Contacts.AddAsync(contact, cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
             var response = new CommandResponse<Guid>
             {
                 Aggregate = contact.Id,

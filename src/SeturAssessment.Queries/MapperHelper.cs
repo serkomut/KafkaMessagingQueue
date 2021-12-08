@@ -18,7 +18,7 @@ namespace SeturAssessment.Queries
                 Company = x.Company,
                 Name = x.Name,
                 Surname = x.Surname,
-                Contacts = x.Contacts != null ? x.Contacts.Select(y => new ContactModel
+                Contacts = x.Contacts != null ? x.Contacts.Select(y => new ContactDto
                 {
                     Id = y.Id,
                     Value = y.Value,
@@ -28,9 +28,9 @@ namespace SeturAssessment.Queries
             };
         }
 
-        public static ContactModel ContactMap(this Contact y)
+        public static ContactDto ContactMap(this Contact y)
         {
-            return new ContactModel
+            return new ContactDto
             {
                 Id = y.Id,
                 Value = y.Value,

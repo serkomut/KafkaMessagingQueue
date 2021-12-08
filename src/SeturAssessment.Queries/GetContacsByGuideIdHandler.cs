@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeturAssessment.Queries
 {
-    public class GetContacsByGuideIdHandler : IRequestHandler<GetContacsByGuideId, ContactModel[]>
+    public class GetContacsByGuideIdHandler : IRequestHandler<GetContacsByGuideId, ContactDto[]>
     {
         private readonly SeturContext context;
 
@@ -18,7 +18,7 @@ namespace SeturAssessment.Queries
             this.context = context;
         }
 
-        public async Task<ContactModel[]> Handle(GetContacsByGuideId request, CancellationToken cancellationToken)
+        public async Task<ContactDto[]> Handle(GetContacsByGuideId request, CancellationToken cancellationToken)
         {
             var contacts = await context.Contacts.Where(x => x.GuideId == request.GuidId)
                 .Select(x => x.ContactMap()).ToArrayAsync();

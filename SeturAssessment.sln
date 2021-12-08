@@ -1,10 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E09F1AD-1207-4810-9B67-040F567031B4}"
 	ProjectSection(SolutionItems) = preProject
+		docs\DOMAIN.MD = docs\DOMAIN.MD
+		docs\MESSAGES.MD = docs\MESSAGES.MD
+		docs\PERSISTENCE.MD = docs\PERSISTENCE.MD
+		docs\QUERIES_COMMANDS.MD = docs\QUERIES_COMMANDS.MD
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -18,17 +22,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{321B545D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Messages", "src\SeturAssessment.Messages\SeturAssessment.Messages.csproj", "{70FFF4FB-2F17-41EE-86A8-9EB2FB634EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAssessment.Messages.Test", "tests\SeturAssessment.Messages.Test\SeturAssessment.Messages.Test.csproj", "{573EB5E0-358B-4DDD-ACAA-E404017E1602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Messages.Test", "tests\SeturAssessment.Messages.Test\SeturAssessment.Messages.Test.csproj", "{573EB5E0-358B-4DDD-ACAA-E404017E1602}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Api", "src\SeturAssessment.Api\SeturAssessment.Api.csproj", "{1C1DDACA-7C13-44CE-B779-CBBBA6FCF07F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAssessment.Commands", "src\SeturAssessment.Commands\SeturAssessment.Commands.csproj", "{4B0CFE5F-6AF5-440C-8F0C-24159F26B518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Commands", "src\SeturAssessment.Commands\SeturAssessment.Commands.csproj", "{4B0CFE5F-6AF5-440C-8F0C-24159F26B518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAssessment.Queries", "src\SeturAssessment.Queries\SeturAssessment.Queries.csproj", "{6B991429-C9F2-4099-BC6C-CBE45D40B324}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Queries", "src\SeturAssessment.Queries\SeturAssessment.Queries.csproj", "{6B991429-C9F2-4099-BC6C-CBE45D40B324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAssessment.Commands.Test", "tests\SeturAssessment.Commands.Test\SeturAssessment.Commands.Test.csproj", "{5C42A572-757B-4FF9-964F-FF212300FF4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Commands.Test", "tests\SeturAssessment.Commands.Test\SeturAssessment.Commands.Test.csproj", "{5C42A572-757B-4FF9-964F-FF212300FF4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeturAssessment.Queries.Test", "tests\SeturAssessment.Queries.Test\SeturAssessment.Queries.Test.csproj", "{E6DF5312-F8C5-4273-81E6-F1160EB80E0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Queries.Test", "tests\SeturAssessment.Queries.Test\SeturAssessment.Queries.Test.csproj", "{E6DF5312-F8C5-4273-81E6-F1160EB80E0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.ReportApi", "src\SeturAssessment.ReportApi\SeturAssessment.ReportApi.csproj", "{18BFAFC4-3B0B-4FCD-AC54-43AEFE044F1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Guide", "Guide", "{7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{00A090BA-9248-4C64-8A68-E497AC75156B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Services", "src\SeturAssessment.Services\SeturAssessment.Services.csproj", "{938518CB-CB4B-4EDE-9E89-39A63942ED48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Events", "src\SeturAssessment.Events\SeturAssessment.Events.csproj", "{9F656C98-BE82-4B21-B988-4807E2648D56}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.Services.Test", "tests\SeturAssessment.Services.Test\SeturAssessment.Services.Test.csproj", "{5ABBB610-F05D-4BA8-A4FF-471AC009D15D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.ReportApi.Application", "src\SeturAssessment.ReportApi.Application\SeturAssessment.ReportApi.Application.csproj", "{896AC2D5-AE0F-49E3-9F26-BBA52DF762C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeturAssessment.ReportApi.Application.Test", "tests\SeturAssessment.ReportApi.Application.Test\SeturAssessment.ReportApi.Application.Test.csproj", "{1C0775CA-19A5-482F-A2A0-DA21896666B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -76,15 +96,51 @@ Global
 		{E6DF5312-F8C5-4273-81E6-F1160EB80E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6DF5312-F8C5-4273-81E6-F1160EB80E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6DF5312-F8C5-4273-81E6-F1160EB80E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18BFAFC4-3B0B-4FCD-AC54-43AEFE044F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18BFAFC4-3B0B-4FCD-AC54-43AEFE044F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18BFAFC4-3B0B-4FCD-AC54-43AEFE044F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18BFAFC4-3B0B-4FCD-AC54-43AEFE044F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938518CB-CB4B-4EDE-9E89-39A63942ED48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938518CB-CB4B-4EDE-9E89-39A63942ED48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938518CB-CB4B-4EDE-9E89-39A63942ED48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938518CB-CB4B-4EDE-9E89-39A63942ED48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F656C98-BE82-4B21-B988-4807E2648D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F656C98-BE82-4B21-B988-4807E2648D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F656C98-BE82-4B21-B988-4807E2648D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F656C98-BE82-4B21-B988-4807E2648D56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABBB610-F05D-4BA8-A4FF-471AC009D15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABBB610-F05D-4BA8-A4FF-471AC009D15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABBB610-F05D-4BA8-A4FF-471AC009D15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABBB610-F05D-4BA8-A4FF-471AC009D15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896AC2D5-AE0F-49E3-9F26-BBA52DF762C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896AC2D5-AE0F-49E3-9F26-BBA52DF762C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896AC2D5-AE0F-49E3-9F26-BBA52DF762C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896AC2D5-AE0F-49E3-9F26-BBA52DF762C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0775CA-19A5-482F-A2A0-DA21896666B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0775CA-19A5-482F-A2A0-DA21896666B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0775CA-19A5-482F-A2A0-DA21896666B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0775CA-19A5-482F-A2A0-DA21896666B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{4B08DE52-0A90-4F74-9466-6B8BD770D667} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
+		{E567FEB3-3C51-4C8B-84E3-96FF700959CC} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
 		{FBBEF560-93E7-454E-90BB-62E1F71651E0} = {321B545D-5ABE-4AC1-9A91-388FFE25EC12}
+		{70FFF4FB-2F17-41EE-86A8-9EB2FB634EB7} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
 		{573EB5E0-358B-4DDD-ACAA-E404017E1602} = {321B545D-5ABE-4AC1-9A91-388FFE25EC12}
+		{1C1DDACA-7C13-44CE-B779-CBBBA6FCF07F} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
+		{4B0CFE5F-6AF5-440C-8F0C-24159F26B518} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
+		{6B991429-C9F2-4099-BC6C-CBE45D40B324} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
 		{5C42A572-757B-4FF9-964F-FF212300FF4A} = {321B545D-5ABE-4AC1-9A91-388FFE25EC12}
 		{E6DF5312-F8C5-4273-81E6-F1160EB80E0E} = {321B545D-5ABE-4AC1-9A91-388FFE25EC12}
+		{18BFAFC4-3B0B-4FCD-AC54-43AEFE044F1A} = {00A090BA-9248-4C64-8A68-E497AC75156B}
+		{938518CB-CB4B-4EDE-9E89-39A63942ED48} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
+		{9F656C98-BE82-4B21-B988-4807E2648D56} = {7EEC9AF4-07D8-4395-98AD-DFBC27C0360B}
+		{5ABBB610-F05D-4BA8-A4FF-471AC009D15D} = {321B545D-5ABE-4AC1-9A91-388FFE25EC12}
+		{896AC2D5-AE0F-49E3-9F26-BBA52DF762C2} = {00A090BA-9248-4C64-8A68-E497AC75156B}
+		{1C0775CA-19A5-482F-A2A0-DA21896666B5} = {321B545D-5ABE-4AC1-9A91-388FFE25EC12}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E03FC8E-5884-4D79-AEF5-312D4DB892D4}

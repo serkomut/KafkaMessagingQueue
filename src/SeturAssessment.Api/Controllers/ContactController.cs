@@ -21,7 +21,7 @@ namespace SeturAssessment.Api.Controllers
         }
 
         [HttpGet("{id:guid}")]
-        public Task<ContactModel> Get([FromRoute] GetContactById request) => mediator.Send(request);
+        public Task<ContactDto> Get([FromRoute] GetContactById request) => mediator.Send(request);
 
         [HttpPost]
         public Task<CommandResponse<Guid>> Post([FromBody] AddContact request)

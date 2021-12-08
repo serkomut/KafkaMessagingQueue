@@ -19,25 +19,9 @@ namespace SeturAssessment.Queries.Test
         }
 
         [Theory]
-        [InlineData(0, 5)]
-        [InlineData(5, 5)]
-        public async Task Handle_Should_Be_Success_When_Skip_Take(int skip, int take)
-        {
-            var request = new GetGuides
-            {
-                Skip = skip,
-                Take = take
-            };
-
-            var result = await handler.Handle(request, CancellationToken.None);
-
-            Assert.NotNull(result);
-            Assert.True(result.Data.Length > 0);
-        }
-
-        [Theory]
+        [InlineData(0, 5, "")]
         [InlineData(0, 5, "Test")]
-        public async Task Handle_Should_Be_Success_When_Skip_Take_Filter(int skip, int take, string filter)
+        public async Task Handle_Should_Be_Success_When_Skip_Take(int skip, int take, string filter)
         {
             var request = new GetGuides
             {
@@ -49,7 +33,7 @@ namespace SeturAssessment.Queries.Test
             var result = await handler.Handle(request, CancellationToken.None);
 
             Assert.NotNull(result);
-            Assert.Collection(result.Data, x => x.Name.Contains(filter));
+            Assert.True(result.Data.Length > 0);
         }
     }
 }

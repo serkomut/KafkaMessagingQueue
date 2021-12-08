@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SeturAssessment.Messages\SeturAssessment.Messages.csproj" />
-    <ProjectReference Include="..\SeturAssessment.Persistence\SeturAssessment.Persistence.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\SeturAssessment.Messages\SeturAssessment.Messages.csproj" />
+		<ProjectReference Include="..\SeturAssessment.Persistence\SeturAssessment.Persistence.csproj" />
+		<ProjectReference Include="..\SeturAssessment.Services\SeturAssessment.Services.csproj" />
+	</ItemGroup>
 
 </Project>

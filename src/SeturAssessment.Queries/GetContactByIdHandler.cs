@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SeturAssessment.Queries
 {
-    public class GetContactByIdHandler : IRequestHandler<GetContactById, ContactModel>
+    public class GetContactByIdHandler : IRequestHandler<GetContactById, ContactDto>
     {
         private readonly SeturContext context;
 
@@ -18,7 +18,7 @@ namespace SeturAssessment.Queries
             this.context = context;
         }
 
-        public async Task<ContactModel> Handle(GetContactById request, CancellationToken cancellationToken)
+        public async Task<ContactDto> Handle(GetContactById request, CancellationToken cancellationToken)
         {
             var contact = await context.Contacts.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
             if (contact == null)

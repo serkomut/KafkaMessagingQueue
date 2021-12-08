@@ -23,18 +23,11 @@ namespace SeturAssessment.Persistence
         }
         public DbSet<Guide> Guides { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new GuideConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             base.OnModelCreating(modelBuilder);
         }
-    }
-
-    public class ContextConfiguration
-    {
-        public string ConnectionString { get; set; }
-        public string Type { get; set; }
     }
 }
