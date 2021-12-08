@@ -17,11 +17,14 @@ namespace SeturAssessment.ReportApi.Application.Events.Consumers
         public Task Consume(ConsumeContext<ReportByLocationCompleted> context)
         {
             var message = context.Message;
-            var item = db.Reports.First(x => x.Id == message.ReportId);
-            item.Status = Domain.Status.Completed;
-            item.Data = message.Data;
-            db.Reports.Update(item);
-            db.SaveChanges();
+            var item = db.Reports.FirstOrDefault(x => x.Id == message.ReportId);
+            if(item != null)
+            {
+                item.Status = Domain.Status.Completed;
+                item.Data = message.Data;
+                db.Reports.Update(item);
+                db.SaveChanges();
+            }
             return Task.CompletedTask;
         }
     }
