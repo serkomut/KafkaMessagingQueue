@@ -1,6 +1,5 @@
 using SeturAssessment.Messages.Commands;
 using SeturAssessment.Messages.Models;
-using System;
 using System.Linq;
 using Xunit;
 

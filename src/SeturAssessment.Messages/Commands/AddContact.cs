@@ -13,7 +13,7 @@ namespace SeturAssessment.Messages.Commands
         public string Value { get; set; }
     }
 
-    public class AddContactValidator : AbstractValidator<ContactModel>
+    public class AddContactValidator : AbstractValidator<AddContact>
     {
         public AddContactValidator()
         {

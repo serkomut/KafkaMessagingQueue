@@ -72,3 +72,11 @@ Var olan migration'u database'e update etmek için;
 `$ ..\SeturAssessment.ReportApi.Application> dotnet ef database update -s ..\SeturAssessment.ReportApi\`
 
 ## Nasıl çalışır?
+
+![alt text](docs/how_does_it_work.png "Nasıl çalışır")
+- Client'lar SeturAssesment.Api'den bir rapor talep ettiğinde. SeturAssessment.Api Client'a hazırlayacağına dair bir söz döner.
+- Bu esnada SeturAssessment.Api, Client'ın bu isteğini Kafka'ya söyler. Kafkada işlemi kuyruğa atar.
+- Kafka bir Topic adıyla Producer (Üretici) eventi oluşturur. SeturAssessment.Api'de bundan iki tane göreceksiniz.
+  - **PreparingEvent;** bu raporu hazırlamaya başladığına dair Cansumer'lara (Tüketicilere) bilgi verir.
+  - **CompletedEvent** bu ise raporu tamamladığında bilgi verir.
+- Yurıdaki şekilde **HTTP iletişim bölgesi** diye adlandırılmış gri alan SeturAssessment.Api ve SeturAssessment.ReportApi arasında HTTP iletişimini ifade eder. Ortada kuyruksal bir iletişim yoktur.
