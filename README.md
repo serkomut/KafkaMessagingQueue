@@ -1,4 +1,4 @@
-﻿# Setur Assessment
+﻿# KafkaMessagingQueue
 - **[İster ve kapsam için tıklayın.](docs/README.MD)**
 - **[Domain](docs/DOMAIN.MD)**
 - **[Persistence](docs/PERSISTENCE.MD)**
@@ -55,29 +55,29 @@ Eğer uygulamaların `appsettings.json` dosyasında bulunan aşağıdaki alanın
 "DatabaseConfigurationType": "", // InMemory
 ```
 
-**SeturAssessment.Api** projesinin database'ni migration yapmak için;
+**KafkaMessagingQueue.Api** projesinin database'ni migration yapmak için;
 
-`$ ..\SeturAssessment.Persistence> dotnet ef migrations add Guide-1.0.1 -s ..\SeturAssessment.Api\`
-
-Var olan migration'u database'e update etmek için;
-
-`$ ..\SeturAssessment.Persistence> dotnet ef database update -s ..\SeturAssessment.Api\`
-
-
-**SeturAssessment.ReportApi** projesinin database'ni migration yapmak için;
-
-`$ ..\SeturAssessment.ReportApi.Application> dotnet ef migrations add Report-1.0.0 -s ..\SeturAssessment.ReportApi\`
+`$ ..\KafkaMessagingQueue.Persistence> dotnet ef migrations add Guide-1.0.1 -s ..\KafkaMessagingQueue.Api\`
 
 Var olan migration'u database'e update etmek için;
 
-`$ ..\SeturAssessment.ReportApi.Application> dotnet ef database update -s ..\SeturAssessment.ReportApi\`
+`$ ..\KafkaMessagingQueue.Persistence> dotnet ef database update -s ..\KafkaMessagingQueue.Api\`
+
+
+**KafkaMessagingQueue.ReportApi** projesinin database'ni migration yapmak için;
+
+`$ ..\KafkaMessagingQueue.ReportApi.Application> dotnet ef migrations add Report-1.0.0 -s ..\KafkaMessagingQueue.ReportApi\`
+
+Var olan migration'u database'e update etmek için;
+
+`$ ..\KafkaMessagingQueue.ReportApi.Application> dotnet ef database update -s ..\KafkaMessagingQueue.ReportApi\`
 
 ## Nasıl çalışır?
 
 ![alt text](docs/how_does_it_work.png "Nasıl çalışır")
-- Client'lar SeturAssesment.Api'den bir rapor talep ettiğinde. SeturAssessment.Api Client'a hazırlayacağına dair bir söz döner.
-- Bu esnada SeturAssessment.Api, Client'ın bu isteğini Kafka'ya söyler. Kafkada işlemi kuyruğa atar.
-- Kafka bir Topic adıyla Producer (Üretici) eventi oluşturur. SeturAssessment.Api'de bundan iki tane göreceksiniz.
+- Client'lar KafkaMessagingQueue.Api'den bir rapor talep ettiğinde. KafkaMessagingQueue.Api Client'a hazırlayacağına dair bir söz döner.
+- Bu esnada KafkaMessagingQueue.Api, Client'ın bu isteğini Kafka'ya söyler. Kafkada işlemi kuyruğa atar.
+- Kafka bir Topic adıyla Producer (Üretici) eventi oluşturur. KafkaMessagingQueue.Api'de bundan iki tane göreceksiniz.
   - **PreparingEvent;** bu raporu hazırlamaya başladığına dair Cansumer'lara (Tüketicilere) bilgi verir.
   - **CompletedEvent** bu ise raporu tamamladığında bilgi verir.
-- Yurıdaki şekilde **HTTP iletişim bölgesi** diye adlandırılmış gri alan SeturAssessment.Api ve SeturAssessment.ReportApi arasında HTTP iletişimini ifade eder. Ortada kuyruksal bir iletişim yoktur.
+- Yurıdaki şekilde **HTTP iletişim bölgesi** diye adlandırılmış gri alan KafkaMessagingQueue.Api ve KafkaMessagingQueue.ReportApi arasında HTTP iletişimini ifade eder. Ortada kuyruksal bir iletişim yoktur.
